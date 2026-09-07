@@ -8,7 +8,7 @@
 <div class="container">
     <h2 class="text-center py-3">แก้ไขบทความ</h2>
 
-    <form method="POST" action="{{route('update', $blog->id ?? '') }}">
+    <form method="POST" action="{{ route('author.update', $blog->id ?? '') }}">
         @csrf
 
         <div class="mb-3">
@@ -30,7 +30,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">อัปเดตบทความ</button>
-        <a href="{{ route('blog2') }}" class="btn btn-secondary">ย้อนกลับ</a>
+        <a href="{{ route('author.blog') }}" class="btn btn-secondary">ย้อนกลับ</a>
     </form>
 </div>
 @endsection

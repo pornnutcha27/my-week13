@@ -46,21 +46,21 @@
 
                     <!-- เกี่ยวกับเรา -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about2') }}">
+                        <a class="nav-link" href="{{ route('author.about') }}">
                             เกี่ยวกับเรา
                         </a>
                     </li>
 
                     <!-- บทความ -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('blog2') }}">
+                        <a class="nav-link" href="{{ route('author.blog') }}">
                             บทความ
                         </a>
                     </li>
 
                     <!-- เขียนบทความ -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('form') }}">
+                        <a class="nav-link" href="{{ route('author.create') }}">
                             เขียนบทความ
                         </a>
                     </li>

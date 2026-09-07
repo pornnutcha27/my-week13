@@ -7,7 +7,7 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center py-2">
         <h2 class="mb-0">จัดการบทความ</h2>
-        <a href="{{ route('form') }}" class="btn btn-primary">เขียนบทความ</a>
+        <a href="{{ route('author.create') }}" class="btn btn-primary">เขียนบทความ</a>
     </div>
     @if($blog2->count() > 0)
     <table class="table table-bordered text-center">
@@ -29,15 +29,15 @@
 
                     <td>
                         @if ($item->status == 1)
-                            <a href="{{route('change', $item->id)}}"class="btn btn-outline-success">เผยแพร่แล้ว</a>
+                            <a href="{{ route('author.change', $item->id) }}" class="btn btn-outline-success">เผยแพร่แล้ว</a>
                         @else
-                            <a href="{{route('change', $item->id)}}"class="btn btn-outline-danger">ยังไม่เผยแพร่</a>
+                            <a href="{{ route('author.change', $item->id) }}" class="btn btn-outline-danger">ยังไม่เผยแพร่</a>
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('edit', $item->id)}}"class="btn btn-outline-warning">แก้ไข</a>
+                        <a href="{{ route('author.edit', $item->id) }}" class="btn btn-outline-warning">แก้ไข</a>
                     </td>
-                    <td><a href="{{ route('delete', $item->id) }}" class="btn btn-outline-danger"
+                    <td><a href="{{ route('author.delete', $item->id) }}" class="btn btn-outline-danger"
                             onclick="return confirm('คุณต้องการลบบทความนี้จริงหรือไม่?')">ลบ</a>
                     </td>
                 </tr>

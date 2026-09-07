@@ -24,10 +24,16 @@ Route::get('student', function () {
     return view('student', compact('student'));
 });
 
-Route::get('/about2',[AdminController::class,'about2'])->name('about2');
-Route::get('/blog2',[AdminController::class,'blog2'])->name('blog2');
-Route::get('/form',[AdminController::class,'form'])->name('form');
-Route::post('/insert',[AdminController::class,'insert'])->name('insert');
+Route::prefix('author')->name('author.')->group(function () {
+    Route::get('/about', [AdminController::class, 'about2'])->name('about');
+    Route::get('/blog', [AdminController::class, 'blog2'])->name('blog');
+    Route::get('/create', [AdminController::class, 'form'])->name('create');
+    Route::post('/insert', [AdminController::class, 'insert'])->name('insert');
+    Route::get('/delete/{id}', [AdminController::class, 'delete'])->name('delete');
+    Route::get('/change/{id}', [AdminController::class, 'change'])->name('change');
+    Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('edit');
+    Route::post('/update/{id}', [AdminController::class, 'update'])->name('update');
+});
 Route::get('/test-db', function () {
     try {
         DB::connection()->getPdo();
@@ -37,12 +43,6 @@ Route::get('/test-db', function () {
     }
 });
 Route::post('/claim',[AdminController::class,'claim'])->name('claim');  
-Route::get('/delete/{id}', [AdminController::class, 'delete'])->name('delete');
-
-Route::get('/change/{id}', [AdminController::class, 'change'])->name('change');
-Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('edit');
-Route::post('/update/{id}', [AdminController::class, 'update'])->name('update');
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

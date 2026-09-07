@@ -15,6 +15,11 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <div class="mt-3">
+                        <a href="{{ route('author.blog') }}" class="btn btn-primary">จัดการบทความ</a>
+                        <a href="{{ route('author.create') }}" class="btn btn-success">เขียนบทความ</a>
+                    </div>
                 </div>
             </div>
         </div>

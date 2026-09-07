@@ -43,18 +43,20 @@ class AdminController extends Controller
             'title.max'=> 'ชื่อบทความต้องไม่เกิน 50 ตัวอักษร',
             'content.required' => 'กรุณาระบุเนื้อหาบทความ',
         ]); 
-        DB::table('blogs')->insert([
+        Blog::insert([
             'title' => $request->title,
             'content' => $request->content,
             'status' => $request->status ?? 1,
         ]);
-        return redirect()->route('blog2');
+        return redirect()->route('author.blog');
     }
 
     function delete($id)
     {
-        DB::table("blogs")->where('id', $id)->delete();
-        return redirect()->route('blog2');
+        $blog = Blog::find($id);
+        abort_if(!$blog, 404);
+        $blog->delete();
+        return redirect()->route('author.blog');
     }
 
      function claim(    Request $request){
@@ -77,23 +79,18 @@ class AdminController extends Controller
             'problem' => $request->problem,
             'priority' => $request->priority,
         ]);
-        return redirect()->route('form');
+        return redirect()->route('author.create');
     }
     function change($id){
-    $blog = DB::table('blogs')->where('id', $id)->first();   
-    $data =[
-        'status' => $blog->status
-    ];
-    if ($blog->status == 0){    
-        $data = ['status'=>1];  
-    }else{
-        $data = ['status'=>0];
-    }
-    DB::table('blogs')->where('id', $id)->update($data);
-    return redirect('/blog2');
+    $blog = Blog::find($id);
+    abort_if(!$blog, 404);
+    $blog->status = $blog->status == 0 ? 1 : 0;
+    $blog->save();
+    return redirect()->route('author.blog');
     }
     function edit($id){
-    $blog = DB::table('blogs')->where('id', $id)->first();
+    $blog = Blog::find($id);
+    abort_if(!$blog, 404);
     return view('edit', compact('blog'));
     }
     function update(Request $request,$id)
@@ -106,12 +103,13 @@ class AdminController extends Controller
             'title.max'=> 'ชื่อบทความต้องไม่เกิน 50 ตัวอักษร',
             'content.required' => 'กรุณาระบุเนื้อหาบทความ',
         ]); 
-        $data = [
-        'title'=>$request->title,
-        'content'=>$request->content,
-        ];
-        DB::table('blogs')->where('id', $id)->update($data);
-        return redirect()->route('blog2');
+        $blog = Blog::find($id);
+        abort_if(!$blog, 404);
+        $blog->update([
+            'title' => $request->title,
+            'content' => $request->content,
+        ]);
+        return redirect()->route('author.blog');
         
     }
 
