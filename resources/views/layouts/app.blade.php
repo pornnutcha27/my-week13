@@ -35,10 +35,10 @@
                         </li>
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('blog2') }}">จัดการบทความ</a>
+                                <a class="nav-link" href="{{ route('author.blog') }}">จัดการบทความ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('form') }}">เขียนบทความ</a>
+                                <a class="nav-link" href="{{ route('author.create') }}">เขียนบทความ</a>
                             </li>
                         @endauth
                     </ul>
@@ -65,8 +65,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('author/form') }}">เขียนบทความ</a>
-                                    <a class="dropdown-item" href="{{ route('author/blog') }}">จัดการบทความ</a>
+                                    <a class="dropdown-item" href="{{ route('author.create') }}">เขียนบทความ</a>
+                                    <a class="dropdown-item" href="{{ route('author.blog') }}">จัดการบทความ</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

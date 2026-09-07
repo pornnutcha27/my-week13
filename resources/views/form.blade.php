@@ -17,7 +17,7 @@
 
                 <div class="card-body p-4">
 
-                    <form method="POST" action="{{ route('insert') }}">
+                    <form method="POST" action="{{ route('author.insert') }}">
                         @csrf
 
                         <div class="mb-4">
@@ -61,7 +61,7 @@
                                 บันทึกบทความ
                             </button>
 
-                            <a href="{{ route('blog2') }}"
+                            <a href="{{ route('author.blog') }}"
                                 class="btn btn-secondary px-4">
                                 ย้อนกลับ
                             </a>
