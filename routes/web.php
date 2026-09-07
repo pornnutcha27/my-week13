@@ -13,6 +13,13 @@ Route::get('about', function () {
 Route::get('blog', function () {
     return view('blog');
 });
+Route::prefix('author')->group(function () {
+    Route::get('/about', [AdminController::class, 'about'])->name('about');
+    Route::get('/blog', [AdminController::class, 'blog'])->name('blog');
+    Route::get('/create', [AdminController::class, 'create'])->name('create');
+    Route::post('/insert', [AdminController::class, 'insert']);
+    Route::post('/update/{id}', [AdminController::class, 'update'])->name('update');
+});
 Route::get('student', function () {
     $student = [
         'id' => 68221,
@@ -42,7 +49,5 @@ Route::get('/delete/{id}', [AdminController::class, 'delete'])->name('delete');
 Route::get('/change/{id}', [AdminController::class, 'change'])->name('change');
 Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('edit');
 Route::post('/update/{id}', [AdminController::class, 'update'])->name('update');
-
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

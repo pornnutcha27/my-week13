@@ -1,16 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
-
 class AdminController extends Controller
 {
-    /**
-     * จำกัดหน้าจัดการบทความทั้งหมดให้ใช้ได้เฉพาะผู้ใช้ที่เข้าสู่ระบบแล้ว
-     */
+    
     public function __construct()
     {
         $this->middleware('auth');
