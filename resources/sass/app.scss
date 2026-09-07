@@ -1,0 +1,64 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+body {
+    background: linear-gradient(135deg, #f7faff 0%, #e1edff 100%);
+    color: #263c5c;
+}
+
+.navbar {
+    background: linear-gradient(90deg, #fff 0%, #e8f1ff 100%) !important;
+    border-bottom: 1px solid #c8dcfa;
+}
+
+.navbar-brand {
+    color: #1d4ed8 !important;
+    font-weight: 800;
+}
+
+.nav-link {
+    color: #46648d !important;
+    font-weight: 600;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: #2563eb !important;
+}
+
+.card {
+    border-color: #d5e4fb;
+    box-shadow: 0 .35rem 1rem rgba(48, 104, 188, .12) !important;
+}
+
+.card-header {
+    background-color: #edf4ff;
+    border-bottom-color: #d5e4fb;
+    color: #28528b;
+    font-weight: 700;
+}
+
+.btn-primary {
+    --bs-btn-bg: #2563eb;
+    --bs-btn-border-color: #2563eb;
+    --bs-btn-hover-bg: #1d4ed8;
+    --bs-btn-hover-border-color: #1d4ed8;
+    --bs-btn-active-bg: #1e40af;
+    --bs-btn-active-border-color: #1e40af;
+}
+
+.dropdown-menu {
+    border-color: #c8dcfa;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #edf4ff;
+    color: #1d4ed8;
+}
